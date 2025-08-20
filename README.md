@@ -5,7 +5,7 @@ Simply import all the functions with:
 <br />
 <code>import amatthy</code>
 <br />
-... and replace the uses of `math` with `amatthy`!
+... and replace the uses of <code>math</code> with <code>amatthy</code>!
 <h2>Implemented stuff</h2>
 
 <b>Implemented constants:</b>
