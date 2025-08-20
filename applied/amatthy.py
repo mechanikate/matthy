@@ -4,9 +4,9 @@ from mattrix import *
 from mattvec import *
 from randy import *
 def mat2vec(mat):
-	if(len(mat.v)==1):
-	    return V(mat.v[0])
-	return [V(arr) for arr in mat.v]
+  if(len(mat.v)==1):
+      return V(mat.v[0])
+  return [V(arr) for arr in mat.v]
 def dimt(mat):
     arr = dim(mat)
     return arr[0], arr[1]
