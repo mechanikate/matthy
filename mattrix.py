@@ -1,6 +1,6 @@
 import matthy
 def dim(mat):
-  if(len(mat.v)==0):
+  if(len(mat.v)==0 or len(mat.v[0]) == 0):
     return [0,0]
   return [len(mat.v),len(mat.v[0])]
 mean=lambda v: sum(v)/len(v) # quick mean calculation
@@ -83,6 +83,8 @@ class M: # Matrix class
         if(sz[0]!=sz[1] or dt==0): # must be a square non-zero-sized matrix
             raise ValueError("Matrix not invertible, must be a square and non-null matrix")
         szb=sz[0] # get value "m" in "m x m"
+        if(szb==1):
+            return M([[1/self.v[0][0]]])
         if(szb==2): # use the inversion formula for 2x2 straight up
             return M([[mat[1][1],-mat[0][1]],[-mat[1][0],mat[0][0]]]).kmul(1/dt)
         cof=[] # for bigger matrices, use the general formula for 3x3 and bigger
