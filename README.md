@@ -7,6 +7,7 @@ Simply import all the functions with:
 <br />
 ... and replace the uses of `math` with `amatthy`!
 <h2>Implemented stuff</h2>
+
 <b>Implemented constants:</b>
 - [x] **`accuracy`** (not in `math` stdlib, determines precision of most functions' outputs)
 - [x] `liaccuracy` (not in `math` stdlib)
