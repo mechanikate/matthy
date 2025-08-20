@@ -1,7 +1,12 @@
 <h1 align="center">matthy</h1>
 A math library that works on MicroPython on, for example, Python-enabled graphing calculators. Requires no other libraries!
-<hr />
-
+<h2>Usage</h2>
+Simply import all the functions with:
+<br />
+<code>import amatthy</code>
+<br />
+... and replace the uses of `math` with `amatthy`!
+<h2>Implemented stuff</h2>
 <b>Implemented constants:</b>
 - [x] **`accuracy`** (not in `math` stdlib, determines precision of most functions' outputs)
 - [x] `liaccuracy` (not in `math` stdlib)
