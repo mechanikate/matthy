@@ -3,6 +3,9 @@ def dim(mat):
   if(len(mat.v)==0 or len(mat.v[0]) == 0):
     return [0,0]
   return [len(mat.v),len(mat.v[0])]
+def dimt(mat):
+    d = dim(mat)
+    return (d[0],d[1])
 mean=lambda v: sum(v)/len(v) # quick mean calculation
 zeros=lambda m,n: M([[0]*n for i in range(m)]) # m x n matrix filled with zeros
 ones=lambda m,n: M([[1]*n for i in range(m)]) # m x n matrix filled with ones
@@ -67,7 +70,8 @@ class M: # Matrix class
             return mat[0][0]*mat[1][1]-mat[0][1]*mat[1][0]
         return sum([((-1)**c)*mat[0][c]*minor(self,0,c).det() for c in range(bsz)]) # calculate the determinant based on minors otherwise
     def tp(self): # transpose matrix (turn 90deg)
-        return M(list(map(list,zip(*self.v))))
+        self = M(list(map(list,zip(*self.v))))
+        return self
     def hdmd(self,mat): # get Hadamard product of 2 m x n matrices
         d1=dim(self)
         d2=dim(mat)
@@ -96,6 +100,24 @@ class M: # Matrix class
         cof.append(cofr)
         cof=M(cof).tp()
         return cof.kmul(1/dt)
+    def off_diag_frobnorm(self):
+        m,n=dimt(self)
+        if(m!=n):
+            raise ValueError("Matrix must be square")
+        return sum([sum([self.v[i][j]**2 if i != j else 0 for j in range(n)]) for i in range(n)])**0.5
+    def eigvals(self,accuracy=matthy.accuracy,tol=1e-9,max_iters=1e4):
+        mat = M(self.v)
+        sized_eye=eye(*dimt(self))
+        frob_norm = matthy.infim
+        iters = 0
+        while frob_norm > tol and iters < max_iters:
+            mu=sized_eye.kmul(mat.v[-1][-1]+tol/10)
+            Q,R=gramschmidt(mat.sub(mu))
+            mat=R.mul(Q).add(mu)
+            frob_norm=mat.off_diag_frobnorm()
+            iters += 1
+        return [mat.v[i][i] for i in range(min(dim(mat)))]
+
 def elim(mat): # gaussian elimination of (m) x (m+1) matrix where the last column's values are the other end of the equation 
     m = mat.v
     n=len(m)
@@ -142,4 +164,21 @@ def cod(pts,f): # calculate R^2 value (coefficient of determination)
 def _minor(mat,i,j): # raw 2D array minor 
     return [row[:j]+row[j+1:] for row in (mat[:i]+mat[i+1:])]
 def minor(mat,i,j): # matrix class-based minor
-    return M(_minor(mat.v,i,j))    
+    return M(_minor(mat.v,i,j))   
+def gramschmidt(mat):
+    m,n=dimt(mat)
+    Q=zeros(m,n)
+    R=zeros(n,n)
+    for j in range(n):
+        Aj=[mat.v[i][j] for i in range(m)]
+        for i in range(j):
+            Qi = [Q.v[k][i] for k in range(m)]
+            R.v[i][j] = sum(Qi[k]*Aj[k] for k in range(m))
+            Aj = [Aj[k]-R.v[i][j]*Qi[k] for k in range(m)]
+        R.v[j][j] = sum(x**2 for x in Aj)**0.5
+        if R.v[j][j] == 0:
+            raise ValueError("Columns are linearly dependent")
+        for i in range(m):
+            Q.v[i][j] = Aj[i]/R.v[j][j]
+    return (Q,R)
+

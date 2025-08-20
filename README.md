@@ -117,6 +117,9 @@ Simply import all the functions with:
         - [x] `M.tp`
         - [x] `M.hdmd`
         - [x] `M.inv`
+        - [x] `M.eigvals`
+        - [x] `M.off_diag_frobnorm`
+    - [x] `gramschmidt` 
     - [x] `dim`
     - [x] `elim`
     - [x] `minor`

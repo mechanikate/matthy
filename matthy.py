@@ -101,7 +101,6 @@ fmod=lambda x,y:x-trunc(x/y)*y
 ldexp=lambda x,i:x*2**i
 dist=lambda p,q: sqrt(sum((px-qx)**2 for px,qx in zip(p,q)))
 hypot=lambda coordinates: sqrt(sum([x**2 for x in coordinates]))
-
 def riemann(a,b,n,f):
 	return sigma(1,n,lambda i: ((b-a)/n)*f(a+i*((b-a)/n)))
 def capi(min,max,f,sv=1):

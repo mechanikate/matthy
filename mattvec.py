@@ -10,6 +10,8 @@ class V:
 		return self
 	def add(self,vct):
 		return self.apply(lambda v,i: v+vct.v[i])
+	def sub(self,vct):
+		return self.add(vct.kmul(-1))
 	def kmul(self,k):
 		return self.apply(lambda v,i: v*k)
 	def dot(self,vct):
@@ -20,4 +22,3 @@ class V:
 		a=self.v
 		b=vct.v
 		return V([a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]) 
-		
