@@ -28,7 +28,6 @@ def floor(x):
 	if(x==trunc(x)):
 		return x
 	return trunc(x)+1
-trunc=floor
 def sign(x):
 	if(x==0):
 		return 0

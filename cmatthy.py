@@ -37,7 +37,7 @@ class complex:
 	def abs(self):
 		return matthy.sqrt(self.real**2+self.imag**2)
 
-def sqrt(z):
+def csqrt(z):
 	az = z.abs()
 	den = complex(az+z.real,z.imag).abs()
 	re = z.real+az

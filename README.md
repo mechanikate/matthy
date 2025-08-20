@@ -1,0 +1,135 @@
+<h1 align="center">matthy</h1>
+A math library that works on MicroPython on, for example, Python-enabled graphing calculators. Requires no other libraries!
+<hr />
+
+<b>Implemented constants:</b>
+- [x] **`accuracy`** (not in `math` stdlib, determines precision of most functions' outputs)
+- [x] `liaccuracy` (not in `math` stdlib)
+- [x] `infim` (not in `math` stdlib)
+- [x] `pi`
+- [x] `tau`
+- [x] `e`
+- [x] `G` (not in `math` stdlib)
+- [x] `lem` (not in `math` stdlib)
+
+<b>Implemented functions:</b>
+- [x] `factorial`
+- [x] `comb` 
+- [x] `trunc`
+- [x] `floor`
+- [x] `sign`
+- [x] `copysign`
+- [x] `sigma` (not in `math` stdlib)
+- [x] `riemann` (not in `math` stdlib)
+- [x] `erf`
+- [x] `erfc`
+- [x] `perm`
+- [x] `isclose`
+- [x] `fabs`
+- [x] `fma`
+- [x] `fmod`
+- [x] `ldexp`
+- [x] `dist`
+- [x] `hypot`
+- [x] `capi` (not in `math` stdlib)
+- [x] `gamma`
+- [x] `gamma2`
+- [x] `agm` (not in `math` stdlib)
+- [x] `gm` (not in `math` stdlib)
+- [x] `zeta`
+- [x] exponential/logarithmic functions
+    - [x] `log`
+    - [x] `ln`
+    - [x] `log1p`
+    - [x] `log2`
+    - [x] `log10`
+    - [x] `exp`
+    - [x] `pow`
+    - [x] `exp2`
+    - [x] `expm1`
+- [x] root functions
+    - [x] `sqrt`
+    - [x] `cbrt`
+- [x] trigonometric utilities/functions
+    - [x] `degrees`
+    - [x] `radians`
+    - [x] `cos`
+    - [x] `sin`
+    - [x] `tan`
+    - [x] `sec`
+    - [x] `csc`
+    - [x] `cot`
+    - [x] `asin`
+    - [x] `asins`(not in `math` stdlib)
+    - [x] `acos` 
+    - [x] `atan` 
+    - [x] `atan2`
+- [x] hyperbolic functions
+    - [x] `cosh`
+    - [x] `sinh`
+    - [x] `tanh`
+    - [x] `sech`
+    - [x] `csch`
+    - [x] `coth`
+    - [x] `asinh`
+    - [x] `acosh`
+    - [x] `atanh`
+    - [x] `acsch`
+    - [x] `asech`
+    - [x] `acoth`
+- [x] calculus utilities (all not in `math` stdlib)
+    - [x] `lim`
+    - [x] `trend`
+    - [x] `pcert`
+    - [x] `ddx`
+    - [x] `slr`
+    - [x] `pr` 
+    - [x] `prfunc`
+    - [x] `prfunc`
+    - [x] `cod`
+- [x] vector utilities (all not in `math` stdlib)
+    - [x] `V`
+        - [x] `V.mag` 
+        - [x] `V.apply`
+        - [x] `V.add`
+        - [x] `V.kmul`
+        - [x] `V.dot`
+        - [x] `V.crs`
+- [x] matrix utilities/functions (all not in `math` stdlib)
+    - [x] `M`
+        - [x] `M.apply`
+        - [x] `M.reduce`
+        - [x] `M.kmul`
+        - [x] `M.sum`
+        - [x] `M.min`
+        - [x] `M.max`
+        - [x] `M.mul`
+        - [x] `M.add`
+        - [x] `M.neg`
+        - [x] `M.sub`
+        - [x] `M.det`
+        - [x] `M.tp`
+        - [x] `M.hdmd`
+        - [x] `M.inv`
+    - [x] `dim`
+    - [x] `elim`
+    - [x] `minor`
+- [x] complex utilities/functions
+    - [x] `complex`
+        - [x] `abs` (in stdlib as `abs`)
+    - [x] `csqrt` (in `cmath` stdlib as `cmath.sqrt`)
+    - [x] `phase`
+    - [x] `polar`
+    - [x] `rect`
+    - [x] `shiftdomain` (not in `cmath` stdlib)
+- [x] random number utilities/functions
+    - [x] `Random` (all not in `random` stdlib)
+        - [x] `Random.twist`
+        - [x] `Random.random`
+        - [x] `Random.i32`
+    - [x] `seed`
+    - [x] `random`
+    - [x] `getrandbits`
+    - [x] `randrange`
+    - [x] `randbytes`
+    - [x] `shuffle`
